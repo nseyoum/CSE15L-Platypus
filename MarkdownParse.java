@@ -24,7 +24,7 @@ public class MarkdownParse {
             if(openParen == -1 || closeParen == -1 || nextOpenBracket == - 1 || nextCloseBracket == -1){
                 return toReturn;
             }
-            if(!markdown.substring(nextOpenBracket-1,nextOpenBracket).equals("!")){
+            if(nextOpenBracket > 0 && !markdown.substring(nextOpenBracket-1,nextOpenBracket).equals("!")){
                 if(openParen - nextCloseBracket <= 1){
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                 }
