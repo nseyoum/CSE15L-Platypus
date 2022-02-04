@@ -65,6 +65,7 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("page1.com");
+        expected.add("page.com");
         assertEquals(expected,links);
     }
 
