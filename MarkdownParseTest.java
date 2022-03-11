@@ -119,4 +119,25 @@ public class MarkdownParseTest {
         expected.add("https://ucsd-cse15l-w22.github.io/");
         assertEquals(expected,links);
     }
+
+    @Test
+    public void test500() throws IOException{
+        Path fileName = Path.of("500.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("#fragment");
+        expected.add("http://example.com#fragment");
+        expected.add("http://example.com?foo=3#frag");
+        assertEquals(expected,links);
+    }
+
+    @Test
+    public void test516() throws IOException{
+        Path fileName = Path.of("516.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        assertEquals(expected,links);
+    }
 }
